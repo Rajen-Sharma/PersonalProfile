@@ -38,7 +38,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;ali
 .nav-cta{font-size:13px;font-weight:600;padding:7px 18px;border-radius:8px;background:var(--grad);color:#fff;text-decoration:none;transition:opacity .2s}
 .nav-cta:hover{opacity:.85}
 
-/* HERO - centred like Gurnam */
+/* HERO */
 .hero{text-align:center;padding:110px 6% 70px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(37,99,235,0.06),transparent);pointer-events:none}
 .hero-name{font-family:'Fraunces',serif;font-size:clamp(40px,5.5vw,68px);font-weight:500;letter-spacing:-2px;line-height:1;color:var(--ink);margin-bottom:20px}
@@ -54,7 +54,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;ali
 /* DIVIDER */
 .divider{height:1px;background:var(--border);margin:0 6%}
 
-/* SECTIONS - centred, wide */
+/* SECTIONS */
 .sw{padding:48px 6%}
 .sw.alt{background:var(--off)}
 .sw-inner{max-width:900px;margin:0 auto}
@@ -119,12 +119,12 @@ h2{font-family:'Fraunces',serif;font-size:clamp(30px,4vw,44px);font-weight:700;l
 .exp-win::before{content:'-';color:var(--muted2);flex-shrink:0}
 
 /* SKILLS */
-.skills-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
-.sg-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.sg-tags{display:flex;flex-wrap:wrap;gap:7px}
-.sg-tag{font-size:12.5px;padding:5px 12px;background:var(--white);border:1px solid var(--border);border-radius:8px;color:var(--mid);font-weight:500;transition:border-color .2s,color .2s}
-.sw.alt .sg-tag{background:var(--white)}
-.sg-tag:hover{border-color:var(--blue-b);color:var(--blue)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center;transition:box-shadow .2s,transform .15s}
+.skill:hover{box-shadow:0 6px 20px rgba(37,99,235,0.08);transform:translateY(-2px)}
+.skill-num{width:36px;height:36px;border-radius:10px;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin:0 auto 14px}
+.skill-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.skill-desc{font-size:13px;color:var(--muted);line-height:1.65}
 
 /* VENTURES */
 .ventures-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -137,7 +137,7 @@ h2{font-family:'Fraunces',serif;font-size:clamp(30px,4vw,44px);font-weight:700;l
 .vc-url{font-size:12.5px;font-weight:600;color:var(--blue);text-decoration:none;display:block;margin-bottom:12px}
 .vc-desc{font-size:13.5px;color:var(--muted);line-height:1.7}
 
-/* CONTACT - centred like Gurnam */
+/* CONTACT */
 .contact-wrap{padding:88px 6%;text-align:center}
 .contact-wrap h2{margin-bottom:12px}
 .contact-wrap .s-sub{margin-bottom:28px}
@@ -192,9 +192,7 @@ footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-
   <div class="hero-title">Engineering &nbsp;·&nbsp; Automation &nbsp;·&nbsp; AI</div>
   <p class="hero-desc">Experienced technology leader with a proven track record in enterprise transformation, building high-performing teams, and delivering production systems from the ground up.</p>
   <div style="width:60px;height:3px;background:var(--grad);border-radius:2px;margin-top:8px"></div>
-
 </section>
-
 
 <!-- ABOUT -->
 <section class="sw" id="about">
@@ -206,10 +204,8 @@ footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-
       <p>What sets me apart is that I don't just manage technology, I build it. From CI/CD pipelines and observability dashboards to a GenAI chatbot deployed in production and an automation system for test engineering, I've always kept one hand in the craft, blending deep engineering expertise with a founder's mindset.</p>
       <p>Outside of work I experiment with a mobile games studio and an e-commerce integration platform, both powered by custom tooling I've built myself.</p>
     </div>
-
   </div>
 </section>
-
 
 <!-- EXPERTISE -->
 <section class="sw alt" id="expertise">
@@ -230,7 +226,6 @@ footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-
   </div>
 </section>
 
-
 <!-- WHAT I'VE BUILT -->
 <section class="sw" id="built">
   <div class="sw-inner wide">
@@ -250,7 +245,6 @@ footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-
   </div>
 </section>
 
-
 <!-- AI AGENTS -->
 <section class="sw alt" id="agents">
   <div class="sw-inner wide">
@@ -265,13 +259,12 @@ footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-
       <div class="agent"><div class="agent-num">05</div><div class="agent-name">Reviewer</div><div class="agent-desc">Audits output against defined standards. Returns pass or fix with exact references - routes failures back to the correct agent, never to the user.</div></div>
       <div class="agent"><div class="agent-num">06</div><div class="agent-name">Documenter</div><div class="agent-desc">Always runs last. Captures decisions, watch-outs, and context so the next session inherits what this one learned.</div></div>
     </div>
-    <div style="margin-top:20px;background:var(--blue-l);border:1px solid var(--blue-border);border-radius:14px;padding:28px 32px">
+    <div style="margin-top:20px;background:var(--blue-l);border:1px solid var(--blue-b);border-radius:14px;padding:28px 32px">
       <div style="font-size:13px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px">The result</div>
       <p style="font-size:15px;color:var(--mid);line-height:1.75">Locator drift dropped dramatically. The agents weren't guessing button labels - they read them from the live DOM. After several sessions, agents were making decisions consistent with architectural choices made weeks earlier, because they read their own notes. The thing that made this work wasn't any one AI feature - it was treating the AI like a new team member: a clearly defined role, a structured process, documented prior decisions, and a reviewer who can send work back.</p>
     </div>
   </div>
 </section>
-
 
 <!-- EXPERIENCE -->
 <section class="sw" id="experience">
@@ -279,7 +272,6 @@ footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-
     <div class="s-eyebrow">Career</div>
     <h2>Experience</h2>
     <div class="exp-list">
-
       <div class="exp-item">
         <div>
           <div class="exp-co">McMillan Shakespeare</div>
@@ -297,7 +289,6 @@ footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-
           </div>
         </div>
       </div>
-
       <div class="exp-item">
         <div>
           <div class="exp-co">Bupa ANZ</div>
@@ -315,7 +306,6 @@ footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-
           </div>
         </div>
       </div>
-
       <div class="exp-item">
         <div>
           <div class="exp-co">Xpanxion</div>
@@ -332,7 +322,6 @@ footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-
           </div>
         </div>
       </div>
-
       <div class="exp-item">
         <div>
           <div class="exp-co">Datamatics</div>
@@ -349,223 +338,132 @@ footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-
           </div>
         </div>
       </div>
-
     </div>
-
-
+  </div>
+</section>
 
 <!-- SKILLS -->
 <section class="sw alt" id="skills">
   <div class="sw-inner wide">
-  <div style="padding:0 0%">
-    <div style="max-width:1100px;margin:0 auto;padding:0 3%">
-      <div class="s-eyebrow">Technical Skills</div>
-      <h2>Skills Snapshot</h2>
-    </div>
-    <div style="padding:0 3%;margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
-        <div style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF);padding:20px 24px;border-bottom:1px solid #C7D2FE">
-          <div style="display:flex;align-items:center;gap:10px">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
-            <span style="font-size:14px;font-weight:700;color:#3730A3">DevOps &amp; Release</span>
+    <div style="padding:0 0%">
+      <div style="max-width:1100px;margin:0 auto;padding:0 3%">
+        <div class="s-eyebrow">Technical Skills</div>
+        <h2>Skills Snapshot</h2>
+      </div>
+      <div style="padding:0 3%;margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
+          <div style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF);padding:20px 24px;border-bottom:1px solid #C7D2FE">
+            <div style="display:flex;align-items:center;gap:10px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+              <span style="font-size:14px;font-weight:700;color:#3730A3">DevOps &amp; Release</span>
+            </div>
+          </div>
+          <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
+            <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Azure DevOps</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">CI/CD</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Jenkins</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Octopus Deploy</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Release Management</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">GitOps</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">DevSecOps</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Environment Management</span>
           </div>
         </div>
-        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
-          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Azure DevOps</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">CI/CD</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Jenkins</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Octopus Deploy</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Release Management</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">GitOps</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">DevSecOps</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Environment Management</span>
-        </div>
-      </div>
-
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
-        <div style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);padding:20px 24px;border-bottom:1px solid #6EE7B7">
-          <div style="display:flex;align-items:center;gap:10px">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#065F46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            <span style="font-size:14px;font-weight:700;color:#065F46">Cloud &amp; Infrastructure</span>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
+          <div style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);padding:20px 24px;border-bottom:1px solid #6EE7B7">
+            <div style="display:flex;align-items:center;gap:10px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#065F46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span style="font-size:14px;font-weight:700;color:#065F46">Cloud &amp; Infrastructure</span>
+            </div>
+          </div>
+          <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
+            <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Microsoft Azure</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">AKS</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Azure APIM</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Azure DevTest Labs</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">FinOps</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Cost Optimisation</span>
           </div>
         </div>
-        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
-          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Microsoft Azure</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">AKS</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Azure APIM</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Azure DevTest Labs</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">FinOps</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Cost Optimisation</span>
-        </div>
-      </div>
-
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
-        <div style="background:linear-gradient(135deg,#FAF5FF,#EDE9FE);padding:20px 24px;border-bottom:1px solid #C4B5FD">
-          <div style="display:flex;align-items:center;gap:10px">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B21A8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
-            <span style="font-size:14px;font-weight:700;color:#6B21A8">AI &amp; Automation</span>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
+          <div style="background:linear-gradient(135deg,#FAF5FF,#EDE9FE);padding:20px 24px;border-bottom:1px solid #C4B5FD">
+            <div style="display:flex;align-items:center;gap:10px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B21A8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+              <span style="font-size:14px;font-weight:700;color:#6B21A8">AI &amp; Agentic Systems</span>
+            </div>
+          </div>
+          <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
+            <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">LLM Orchestration</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Multi-Agent Frameworks</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">GenAI Automation</span>
+            <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Prompt Engineering</span>
           </div>
         </div>
-        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
-          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Azure AI</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">GenAI / LLMs</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Agent Orchestration</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">RAG Pipelines</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Vector Search</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Embeddings</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Prompt Engineering</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Selenium / WebDriver</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">JMeter</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Playwright</span>
-        </div>
-      </div>
-
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
-        <div style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7);padding:20px 24px;border-bottom:1px solid #FCD34D">
-          <div style="display:flex;align-items:center;gap:10px">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#92400E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            <span style="font-size:14px;font-weight:700;color:#92400E">SRE &amp; Monitoring</span>
-          </div>
-        </div>
-        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
-          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Datadog</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Splunk</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Prometheus</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Grafana</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">App Insights</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Dynatrace</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">SRE Practices</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Alerting Frameworks</span>
-        </div>
-      </div>
-
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
-        <div style="background:linear-gradient(135deg,#FEF2F2,#FEE2E2);padding:20px 24px;border-bottom:1px solid #FCA5A5">
-          <div style="display:flex;align-items:center;gap:10px">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#991B1B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-            <span style="font-size:14px;font-weight:700;color:#991B1B">Data Management</span>
-          </div>
-        </div>
-        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
-          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Delphix</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Oracle</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">MSSQL</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">PostgreSQL</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Vector Database</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Data Masking</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Data Virtualisation</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Data Quality</span>
-        </div>
-      </div>
-
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
-        <div style="background:linear-gradient(135deg,#F0F9FF,#E0F2FE);padding:20px 24px;border-bottom:1px solid #7DD3FC">
-          <div style="display:flex;align-items:center;gap:10px">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0C4A6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            <span style="font-size:14px;font-weight:700;color:#0C4A6E">Languages &amp; Tooling</span>
-          </div>
-        </div>
-        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">C#</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Java</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Python</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Node.js</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">TypeScript</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Dynamics 365</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Power Apps</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Docker</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Terraform</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Android Dev</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Google Play</span>
-          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">App Store Management</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Leadership Competencies -->
-    <div style="margin-top:24px;background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
-      <div style="background:linear-gradient(135deg,#F8FAFF,#EEF2FF);padding:20px 24px;border-bottom:1px solid var(--border)">
-        <div style="display:flex;align-items:center;gap:10px">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <span style="font-size:14px;font-weight:700;color:#1D4ED8">Leadership Competencies</span>
-        </div>
-      </div>
-      <div style="padding:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Digital Transformation</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Technology Strategy</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Team Leadership</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Stakeholder Management</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Budget Management</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Vendor Management</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Innovation Management</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Agile / Lean Delivery</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Continuous Improvement</div>
       </div>
     </div>
-
-  </div>
   </div>
 </section>
 
-
 <!-- VENTURES -->
 <section class="sw" id="ventures">
-  <div class="sw-inner">
-    <div class="s-eyebrow">Ventures</div>
-    <h2>Side Projects</h2>
-    <p class="s-sub">Things built outside of work.</p>
+  <div class="sw-inner wide">
+    <div class="s-eyebrow">Personal Projects</div>
+    <h2>Ventures &amp; Side Projects</h2>
+    <p class="s-sub">Building platforms and applications outside of my day-to-day role.</p>
     <div class="ventures-grid">
       <div class="vc">
         <div class="vc-bar"></div>
         <div class="vc-body">
-          <div class="vc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="vc-icon">
+             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          </div>
           <div class="vc-name">QuantixLabs</div>
-          <a class="vc-url" href="https://www.quantixlabs.org" target="_blank">quantixlabs.org</a>
-          <div class="vc-desc">Independent mobile games studio. Three titles in development - PuzzleQ, Quickfire, and Trivia Hub. Built for Android, privacy-first, no ads or dark patterns.</div>
+          <a href="#" class="vc-url">Google Play Store &rarr;</a>
+          <p class="vc-desc">An independent mobile games studio developing ad-free, privacy-first games for Android devices.</p>
         </div>
       </div>
       <div class="vc">
         <div class="vc-bar"></div>
         <div class="vc-body">
-          <div class="vc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
-          <div class="vc-name">E-commerce Integration Platform</div>
-          <a class="vc-url" href="https://www.ebay.com.au/str/shopfrenzyaustralia" target="_blank">ShopFrenzy</a>
-          <div class="vc-desc">A custom-built integration platform connecting e-commerce storefronts with supplier feeds, pricing engines, and order management systems. Built to run ShopFrenzy and now available as a tool for other businesses operating at scale online.</div>
+          <div class="vc-icon">
+             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          </div>
+          <div class="vc-name">E-commerce Integration</div>
+          <a href="#" class="vc-url">Internal Platform &rarr;</a>
+          <p class="vc-desc">A custom-built suite for automating inventory, pricing, and order management across multiple marketplaces.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
 <!-- CONTACT -->
-<section class="contact-wrap" id="contact">
-  <div class="s-eyebrow">Contact</div>
-  <h2>Get In Touch</h2>
-  <p class="s-sub">Happy to connect on engineering, AI, automation, or anything else worth talking about.</p>
-  <div class="contact-btns">
-    <a href="mailto:rajendra@rajendrasharma.com" class="btn-grad">✉ Email Me</a>
-    <a href="https://linkedin.com/in/rajendra--sharma" target="_blank" class="btn-outline">LinkedIn</a>
-  </div>
-  <div class="contact-info">
-    <div class="ci-box">
-      <div class="ci-label">Currently</div>
-      <div class="ci-body">Enterprise Release &amp; QA Manager at McMillan Shakespeare, Melbourne.</div>
+<section class="sw alt" id="contact">
+  <div class="contact-wrap">
+    <div class="s-eyebrow">Get In Touch</div>
+    <h2>Let's connect</h2>
+    <p class="s-sub">Whether it's a technical deep-dive, a leadership discussion, or just a chat about the future of engineering.</p>
+    <div class="contact-btns">
+      <a href="mailto:contact@example.com" class="btn-grad">Send an Email</a>
+      <a href="#" class="btn-outline">Connect on LinkedIn</a>
     </div>
-    <div class="ci-box">
-      <div class="ci-label">Education</div>
-      <div class="ci-body">
-        <div class="edu-deg">Bachelor of Computer Engineering</div>
-        <div class="edu-uni">Pune University</div>
+    <div class="contact-info">
+      <div class="ci-box">
+        <div class="ci-label">Location</div>
+        <div class="ci-body">Melbourne, Victoria<br>Australia</div>
       </div>
-    </div>
-    <div class="ci-box">
-      <div class="ci-label">Writing</div>
-      <div class="ci-body">
-        <a href="https://www.linkedin.com/pulse/from-productivity-predictive-governance-introducing-cognitive-sharma-zptec/" target="_blank">Predictive Governance →</a>
-        <a href="https://www.linkedin.com/pulse/evolving-mindset-technology-leadership-rajendra-sharma-rr6nc/" target="_blank">Evolving Mindset →</a>
+      <div class="ci-box">
+        <div class="ci-label">Contact</div>
+        <div class="ci-body">
+          <a href="mailto:contact@example.com">contact@example.com</a>
+        </div>
+      </div>
+      <div class="ci-box">
+        <div class="ci-label">Social</div>
+        <div class="ci-body">
+          <a href="#">LinkedIn Profile</a>
+          <a href="#">GitHub Repos</a>
+        </div>
       </div>
     </div>
   </div>
@@ -575,14 +473,14 @@ footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-
 <footer>
   <div>
     <div class="f-name">Rajendra Sharma</div>
-    <div class="f-sub">Engineering Leader · Melbourne, AU</div>
+    <div class="f-sub">Engineering · Automation · AI</div>
   </div>
   <div class="f-links">
-    <a href="https://linkedin.com/in/rajendra--sharma" target="_blank">LinkedIn</a>
-    <a href="https://www.quantixlabs.org" target="_blank">QuantixLabs</a>
-    <a href="mailto:rajendra@rajendrasharma.com">Email</a>
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#experience">Experience</a>
   </div>
-  <div class="f-copy">© 2026 rajendrasharma.com</div>
+  <div class="f-copy">&copy; 2024 Rajendra Sharma. All rights reserved.</div>
 </footer>
 
 </body>
