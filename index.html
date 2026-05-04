@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajendra Sharma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#111827;
+  --mid:#374151;
+  --muted:#6B7280;
+  --muted2:#9CA3AF;
+  --border:#E5E7EB;
+  --off:#F9FAFB;
+  --white:#fff;
+  --blue:#2563EB;
+  --blue-l:#EFF6FF;
+  --blue-b:#BFDBFE;
+  --purple:#7C3AED;
+  --grad:linear-gradient(135deg,#2563EB,#7C3AED);
+  --green:#059669;
+  --green-l:#ECFDF5;
+  --amber:#D97706;
+  --amber-l:#FFFBEB;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.65}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-name{font-weight:700;font-size:15px;color:var(--ink)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-cta{font-size:13px;font-weight:600;padding:7px 18px;border-radius:8px;background:var(--grad);color:#fff;text-decoration:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+/* HERO - centred like Gurnam */
+.hero{text-align:center;padding:110px 6% 70px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(37,99,235,0.06),transparent);pointer-events:none}
+.hero-name{font-family:'Fraunces',serif;font-size:clamp(40px,5.5vw,68px);font-weight:500;letter-spacing:-2px;line-height:1;color:var(--ink);margin-bottom:20px}
+.hero-title{font-size:clamp(16px,2vw,20px);color:var(--muted);font-weight:400;margin-bottom:20px;line-height:1.5}
+.hero-title strong{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
+.hero-desc{font-size:17px;color:var(--muted);max-width:580px;margin:0 auto 20px;line-height:1.8;font-weight:400}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-grad{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;background:var(--grad);color:#fff;text-decoration:none;border-radius:9px;font-size:14px;font-weight:600;box-shadow:0 4px 14px rgba(37,99,235,0.25);transition:opacity .2s,transform .1s}
+.btn-grad:hover{opacity:.9;transform:translateY(-1px)}
+.btn-outline{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;border:1.5px solid var(--border);color:var(--ink);text-decoration:none;border-radius:9px;font-size:14px;font-weight:500;transition:border-color .2s,color .2s}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:0 6%}
+
+/* SECTIONS - centred, wide */
+.sw{padding:48px 6%}
+.sw.alt{background:var(--off)}
+.sw-inner{max-width:900px;margin:0 auto}
+.sw-inner.wide{max-width:1100px}
+.s-eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;text-align:center}
+h2{font-family:'Fraunces',serif;font-size:clamp(30px,4vw,44px);font-weight:700;letter-spacing:-1.5px;color:var(--ink);line-height:1.1;margin-bottom:12px;text-align:center}
+.s-sub{font-size:16px;color:var(--muted);text-align:center;max-width:540px;margin:0 auto 28px;line-height:1.75}
+
+/* ABOUT */
+.about-body{font-size:16.5px;color:var(--mid);line-height:1.85;text-align:center;max-width:700px;margin:0 auto}
+.about-body p+p{margin-top:18px}
+.principles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.principle{padding:8px 18px;border-radius:100px;background:var(--white);border:1px solid var(--border);font-size:13.5px;font-weight:500;color:var(--mid);transition:border-color .2s,color .2s}
+.principle:hover{border-color:var(--blue-b);color:var(--blue)}
+
+/* CAPABILITIES */
+.cap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.cap{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px 24px;transition:box-shadow .2s,transform .15s,border-color .2s}
+.sw.alt .cap{background:var(--white)}
+.cap:hover{box-shadow:0 6px 24px rgba(37,99,235,0.08);transform:translateY(-2px);border-color:var(--blue-b)}
+.cap-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+.ci-b{background:var(--blue-l)}.ci-p{background:#F5F3FF}.ci-g{background:var(--green-l)}.ci-a{background:var(--amber-l)}
+.cap-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.cap-desc{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* BUILT */
+.built-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.bc{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;transition:box-shadow .2s,transform .15s,border-color .2s}
+.bc:hover{box-shadow:0 8px 28px rgba(37,99,235,0.09);transform:translateY(-2px);border-color:var(--blue-b)}
+.bc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);transform:scaleX(0);transition:transform .2s;transform-origin:left}
+.bc:hover::before{transform:scaleX(1)}
+.bc-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:100px;margin-bottom:14px}
+.bc-badge::before{content:'';width:5px;height:5px;border-radius:50%}
+.bb-live{background:var(--green-l);color:var(--green)}.bb-live::before{background:var(--green)}
+.bb-new{background:var(--blue-l);color:var(--blue)}.bb-new::before{background:var(--blue)}
+.bb-dev{background:var(--amber-l);color:var(--amber)}.bb-dev::before{background:var(--amber)}
+.bc-name{font-family:'Fraunces',serif;font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;letter-spacing:-0.2px;line-height:1.2}
+.bc-stack{font-size:10.5px;font-weight:600;color:var(--blue);margin-bottom:8px}
+.bc-desc{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* AGENTS */
+.agents-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.agent{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center;transition:box-shadow .2s,transform .15s}
+.agent:hover{box-shadow:0 6px 20px rgba(37,99,235,0.08);transform:translateY(-2px)}
+.agent-num{width:36px;height:36px;border-radius:10px;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin:0 auto 14px}
+.agent-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.agent-desc{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:22px 0;border-bottom:1px solid var(--border)}
+.exp-item:first-child{padding-top:0}
+.exp-co{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
+.exp-period{font-size:12.5px;color:var(--muted);margin-bottom:8px}
+.exp-badge{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 9px;border-radius:100px}
+.eb-ft{background:var(--green-l);color:var(--green)}
+.eb-ct{background:var(--off);color:var(--muted);border:1px solid var(--border)}
+.exp-role{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.exp-note{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:14px;font-style:italic}
+.exp-wins{display:flex;flex-direction:column;gap:4px}
+.exp-win{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--mid);line-height:1.5}
+.exp-win::before{content:'-';color:var(--muted2);flex-shrink:0}
+
+/* SKILLS */
+.skills-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.sg-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.sg-tags{display:flex;flex-wrap:wrap;gap:7px}
+.sg-tag{font-size:12.5px;padding:5px 12px;background:var(--white);border:1px solid var(--border);border-radius:8px;color:var(--mid);font-weight:500;transition:border-color .2s,color .2s}
+.sw.alt .sg-tag{background:var(--white)}
+.sg-tag:hover{border-color:var(--blue-b);color:var(--blue)}
+
+/* VENTURES */
+.ventures-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vc{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:box-shadow .2s,transform .15s}
+.vc:hover{box-shadow:0 8px 28px rgba(0,0,0,0.07);transform:translateY(-2px)}
+.vc-bar{height:3px;background:var(--grad)}
+.vc-body{padding:28px}
+.vc-icon{margin-bottom:12px;display:flex}
+.vc-name{font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.vc-url{font-size:12.5px;font-weight:600;color:var(--blue);text-decoration:none;display:block;margin-bottom:12px}
+.vc-desc{font-size:13.5px;color:var(--muted);line-height:1.7}
+
+/* CONTACT - centred like Gurnam */
+.contact-wrap{padding:88px 6%;text-align:center}
+.contact-wrap h2{margin-bottom:12px}
+.contact-wrap .s-sub{margin-bottom:28px}
+.contact-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.contact-info{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:720px;margin:0 auto}
+.ci-box{background:var(--off);border-radius:14px;padding:22px 24px;text-align:left}
+.ci-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.ci-body{font-size:13.5px;color:var(--mid);line-height:1.7}
+.ci-body a{color:var(--blue);text-decoration:none;display:block;margin-bottom:4px;font-size:13px}
+.ci-body a:hover{text-decoration:underline}
+.edu-deg{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.edu-uni{font-size:12.5px;color:var(--muted)}
+.edu-yr{font-size:12px;font-weight:600;color:var(--blue);margin-top:4px}
+
+/* FOOTER */
+footer{padding:32px 6%;background:var(--ink);display:flex;justify-content:space-between;align-items:center}
+.f-name{font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:#fff}
+.f-sub{font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px}
+.f-links{display:flex;gap:22px}
+.f-links a{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s}
+.f-links a:hover{color:#fff}
+.f-copy{font-size:12px;color:rgba(255,255,255,0.3)}
+
+@media(max-width:860px){
+  nav .nav-links{display:none}
+  .agents-grid{grid-template-columns:1fr 1fr}
+  .exp-item{grid-template-columns:1fr;gap:10px}
+  .ventures-grid,.contact-info{grid-template-columns:1fr}
+  .sw{padding:36px 5%}
+  .hero{padding:90px 5% 50px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Rajendra Sharma</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#ventures">Ventures</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get In Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-name">Rajendra Sharma</div>
+  <div class="hero-title">Engineering &nbsp;·&nbsp; Automation &nbsp;·&nbsp; AI</div>
+  <p class="hero-desc">Experienced technology leader with a proven track record in enterprise transformation, building high-performing teams, and delivering production systems from the ground up.</p>
+  <div style="width:60px;height:3px;background:var(--grad);border-radius:2px;margin-top:8px"></div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="sw" id="about">
+  <div class="sw-inner wide">
+    <div class="s-eyebrow">About Me</div>
+    <h2>A bit about me</h2>
+    <div class="about-body">
+      <p>A technology leader who has progressed from hands-on application development to leading teams, delivering programs, and shaping technology assets across enterprise environments. I've worked across healthcare, financial services, and technology, contributing to large-scale DevOps and digital transformation programs, building high-performing engineering teams, and helping organisations make their delivery more reliable and their systems more scalable.</p>
+      <p>What sets me apart is that I don't just manage technology, I build it. From CI/CD pipelines and observability dashboards to a GenAI chatbot deployed in production and an automation system for test engineering, I've always kept one hand in the craft, blending deep engineering expertise with a founder's mindset.</p>
+      <p>Outside of work I experiment with a mobile games studio and an e-commerce integration platform, both powered by custom tooling I've built myself.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- EXPERTISE -->
+<section class="sw alt" id="expertise">
+  <div class="sw-inner wide">
+    <div class="s-eyebrow">Core Capabilities</div>
+    <h2>What I Do</h2>
+    <p class="s-sub">Hands-on across the full engineering stack - from pipelines and cloud to AI systems and team leadership.</p>
+    <div class="cap-grid">
+      <div class="cap"><div class="cap-icon ci-b"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg></div><div class="cap-title">DevOps &amp; Release Engineering</div><div class="cap-desc">Release lifecycle management, CI/CD pipelines, and zero-downtime deployment across enterprise environments.</div></div>
+      <div class="cap"><div class="cap-icon ci-p"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div><div class="cap-title">AI &amp; Agentic Systems</div><div class="cap-desc">Building AI agent pipelines for test automation and deploying GenAI tooling in production.</div></div>
+      <div class="cap"><div class="cap-icon ci-b"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="cap-title">Cloud &amp; Infrastructure</div><div class="cap-desc">Azure architecture, AKS, API Management, FinOps, and enterprise environment strategy.</div></div>
+      <div class="cap"><div class="cap-icon ci-g"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="cap-title">Test Automation</div><div class="cap-desc">Building reusable automation frameworks - Selenium, C#, JMeter - with high coverage and longevity.</div></div>
+      <div class="cap"><div class="cap-icon ci-a"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="cap-title">Observability</div><div class="cap-desc">Dashboards and alerting frameworks that give teams clear visibility into system health.</div></div>
+      <div class="cap"><div class="cap-icon ci-g"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="cap-title">Engineering Leadership</div><div class="cap-desc">Team building, mentoring, budget management, and running delivery programs that stick.</div></div>
+      <div class="cap"><div class="cap-icon ci-p"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div class="cap-title">Integration Engineering</div><div class="cap-desc">API and system integrations - CRM, ERP, e-commerce - built to be resilient and maintainable.</div></div>
+      <div class="cap"><div class="cap-icon ci-b"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cap-title">Risk &amp; Compliance</div><div class="cap-desc">Environment stability, DR planning, and compliance embedded into engineering practice.</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHAT I'VE BUILT -->
+<section class="sw" id="built">
+  <div class="sw-inner wide">
+    <div class="s-eyebrow">What I've Built</div>
+    <h2>Tools &amp; Platforms</h2>
+    <p class="s-sub">A selection of things built across work and personal projects.</p>
+    <div class="built-grid">
+      <div class="bc"><div class="bc-name">AI Driven Development</div><div class="bc-stack">Azure AI · LLM Orchestration · Agentic Systems</div><div class="bc-desc">Coordinated AI agents handling test automation end-to-end - requirements to scripts to results, no manual handoffs.</div></div>
+      <div class="bc"><div class="bc-name">DevOps Tools</div><div class="bc-stack">CI/CD · D365 · Power Apps · Provisioning</div><div class="bc-desc">Automation across environment provisioning, Dynamics 365 deployments, Power Apps pipelines, and release orchestration.</div></div>
+      <div class="bc"><div class="bc-name">Test Automation</div><div class="bc-stack">Selenium · Java · Performance · Custom Interpreter</div><div class="bc-desc">Enterprise test frameworks with a plain-language interpreter, performance monitoring, and load testing across web and API layers.</div></div>
+      <div class="bc"><div class="bc-name">Environment Dashboard</div><div class="bc-stack">Azure DevOps · Datadog</div><div class="bc-desc">Unified real-time view across cloud, on-prem, and legacy environments - status, alerting, and release readiness in one place.</div></div>
+      <div class="bc"><div class="bc-name">Data Management</div><div class="bc-stack">Delphix · Oracle · Unix · Data Masking</div><div class="bc-desc">Large-scale Oracle data virtualisation using Delphix, with automated Unix pipelines covering provisioning, masking, and data quality.</div></div>
+      <div class="bc"><div class="bc-name">QuantixLabs Apps &amp; Games</div><div class="bc-stack">Android · Google Play</div><div class="bc-desc">Independent mobile games studio - PuzzleQ, Quickfire, and Trivia Hub. Privacy-first, no ads, lightweight on Android.</div></div>
+      <div class="bc"><div class="bc-name">E-commerce Integration Suite</div><div class="bc-stack">Marketplace API · Inventory &amp; Order Automation</div><div class="bc-desc">Custom platform handling listings, pricing, inventory sync, and orders across e-commerce channels. Available to other businesses.</div></div>
+      <div class="bc"><div class="bc-name">Productivity Tools</div><div class="bc-stack">Azure · FinOps · Indexing &amp; Analysis</div><div class="bc-desc">A growing suite of internal tools - indexers, a FinOps spend tracking tool in development for McMillan Shakespeare, and other utilities.</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- AI AGENTS -->
+<section class="sw alt" id="agents">
+  <div class="sw-inner wide">
+    <div class="s-eyebrow">Multi-Agent Systems</div>
+    <h2>Agentic Delivery Framework</h2>
+    <p class="s-sub">A coordinated multi-agent system where each agent has a single, non-overlapping responsibility. No agent bypasses the chain. The pattern is domain-agnostic - applied here to software delivery, but the architecture works across any complex workflow.</p>
+    <div class="agents-grid">
+      <div class="agent"><div class="agent-num">01</div><div class="agent-name">Coordinator</div><div class="agent-desc">The only entry point. Reads prior context, orchestrates the chain, and writes nothing itself. All decisions flow through here.</div></div>
+      <div class="agent"><div class="agent-num">02</div><div class="agent-name">Researcher</div><div class="agent-desc">Read-only discovery. Maps the current state, identifies gaps, and returns a structured findings report before anything is actioned.</div></div>
+      <div class="agent"><div class="agent-num">03</div><div class="agent-name">Builder</div><div class="agent-desc">Executes the work within a strictly defined scope. Never overreaches into adjacent responsibilities.</div></div>
+      <div class="agent"><div class="agent-num">04</div><div class="agent-name">Spec Writer</div><div class="agent-desc">Validates against the live system, not assumptions. Grounds every output in observed reality before producing a result.</div></div>
+      <div class="agent"><div class="agent-num">05</div><div class="agent-name">Reviewer</div><div class="agent-desc">Audits output against defined standards. Returns pass or fix with exact references - routes failures back to the correct agent, never to the user.</div></div>
+      <div class="agent"><div class="agent-num">06</div><div class="agent-name">Documenter</div><div class="agent-desc">Always runs last. Captures decisions, watch-outs, and context so the next session inherits what this one learned.</div></div>
+    </div>
+    <div style="margin-top:20px;background:var(--blue-l);border:1px solid var(--blue-border);border-radius:14px;padding:28px 32px">
+      <div style="font-size:13px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px">The result</div>
+      <p style="font-size:15px;color:var(--mid);line-height:1.75">Locator drift dropped dramatically. The agents weren't guessing button labels - they read them from the live DOM. After several sessions, agents were making decisions consistent with architectural choices made weeks earlier, because they read their own notes. The thing that made this work wasn't any one AI feature - it was treating the AI like a new team member: a clearly defined role, a structured process, documented prior decisions, and a reviewer who can send work back.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPERIENCE -->
+<section class="sw" id="experience">
+  <div class="sw-inner">
+    <div class="s-eyebrow">Career</div>
+    <h2>Experience</h2>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div>
+          <div class="exp-co">McMillan Shakespeare</div>
+          <div class="exp-period">2+ years · Melbourne</div>
+          <span class="exp-badge eb-ft">Full-time</span>
+        </div>
+        <div>
+          <div class="exp-role">Enterprise Release &amp; QA Manager</div>
+          <div class="exp-wins">
+            <div class="exp-win">Coordinated delivery of two high-profile multi-million dollar programs</div>
+            <div class="exp-win">AI-driven technology uplift across delivery and engineering practices</div>
+            <div class="exp-win">Overseeing full release lifecycle across enterprise applications</div>
+            <div class="exp-win">Driving release automation and environment configuration improvements</div>
+            <div class="exp-win">Managing and mentoring a cross-functional delivery team</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div>
+          <div class="exp-co">Bupa ANZ</div>
+          <div class="exp-period">8 years · Melbourne</div>
+          <span class="exp-badge eb-ft">Full-time</span>
+        </div>
+        <div>
+          <div class="exp-role">DevOps Transformation Lead</div>
+          <div class="exp-wins">
+            <div class="exp-win">Realised ~$100K per month in Azure cost savings through FinOps review and DevOps pipeline optimisation</div>
+            <div class="exp-win">Zero-downtime production releases across all major transformation streams</div>
+            <div class="exp-win">Migrated thousands of APIs to Azure APIM and scaled Delphix DB virtualisation</div>
+            <div class="exp-win">Deployed a GenAI chatbot for environment self-service provisioning</div>
+            <div class="exp-win">Led and mentored a high-performing DevOps and delivery team</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div>
+          <div class="exp-co">Xpanxion</div>
+          <div class="exp-period">1.5 years · Pune</div>
+          <span class="exp-badge eb-ft">Full-time</span>
+        </div>
+        <div>
+          <div class="exp-role">Engineering Lead · Automation &amp; Quality</div>
+          <div class="exp-wins">
+            <div class="exp-win">CI/CD via Jenkins and Octopus Deploy - 45% faster deployments</div>
+            <div class="exp-win">JMeter performance engineering - 4× scalability, 60% latency reduction</div>
+            <div class="exp-win">Innovation dashboards - $250K in annual savings identified</div>
+            <div class="exp-win">Managed and mentored junior engineering team members</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div>
+          <div class="exp-co">Datamatics</div>
+          <div class="exp-period">6 years 8 months · Multiple locations</div>
+          <span class="exp-badge eb-ft">Full-time</span>
+        </div>
+        <div>
+          <div class="exp-role">Automation Architect</div>
+          <div class="exp-wins">
+            <div class="exp-win">Multiple clients across insurance, finance, and technology in various geographic locations</div>
+            <div class="exp-win">In-house product development, pre-sales, R&amp;D, and Java interpreter with natural language processing</div>
+            <div class="exp-win">Led delivery teams across multiple concurrent client engagements</div>
+            <div class="exp-win">4× internal awards across R&amp;D, development, pre-sales, and client relations</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+<!-- SKILLS -->
+<section style="padding:48px 0;background:var(--off)" id="skills">
+  <div style="padding:0 0%">
+    <div style="max-width:1100px;margin:0 auto;padding:0 3%">
+      <div class="s-eyebrow">Technical Skills</div>
+      <h2>Skills Snapshot</h2>
+    </div>
+    <div style="padding:0 3%;margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
+        <div style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF);padding:20px 24px;border-bottom:1px solid #C7D2FE">
+          <div style="display:flex;align-items:center;gap:10px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+            <span style="font-size:14px;font-weight:700;color:#3730A3">DevOps &amp; Release</span>
+          </div>
+        </div>
+        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Azure DevOps</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">CI/CD</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Jenkins</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Octopus Deploy</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Release Management</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">GitOps</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">DevSecOps</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#EEF2FF;color:#4338CA;font-size:12.5px;font-weight:500;border:1px solid #C7D2FE">Environment Management</span>
+        </div>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
+        <div style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);padding:20px 24px;border-bottom:1px solid #6EE7B7">
+          <div style="display:flex;align-items:center;gap:10px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#065F46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span style="font-size:14px;font-weight:700;color:#065F46">Cloud &amp; Infrastructure</span>
+          </div>
+        </div>
+        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Microsoft Azure</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">AKS</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Azure APIM</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Azure DevTest Labs</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">FinOps</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#ECFDF5;color:#065F46;font-size:12.5px;font-weight:500;border:1px solid #6EE7B7">Cost Optimisation</span>
+        </div>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
+        <div style="background:linear-gradient(135deg,#FAF5FF,#EDE9FE);padding:20px 24px;border-bottom:1px solid #C4B5FD">
+          <div style="display:flex;align-items:center;gap:10px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B21A8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            <span style="font-size:14px;font-weight:700;color:#6B21A8">AI &amp; Automation</span>
+          </div>
+        </div>
+        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Azure AI</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">GenAI / LLMs</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Agent Orchestration</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">RAG Pipelines</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Vector Search</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Embeddings</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Prompt Engineering</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Selenium / WebDriver</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">JMeter</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FAF5FF;color:#6B21A8;font-size:12.5px;font-weight:500;border:1px solid #C4B5FD">Playwright</span>
+        </div>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
+        <div style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7);padding:20px 24px;border-bottom:1px solid #FCD34D">
+          <div style="display:flex;align-items:center;gap:10px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#92400E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span style="font-size:14px;font-weight:700;color:#92400E">SRE &amp; Monitoring</span>
+          </div>
+        </div>
+        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Datadog</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Splunk</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Prometheus</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Grafana</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">App Insights</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Dynatrace</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">SRE Practices</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FFFBEB;color:#92400E;font-size:12.5px;font-weight:500;border:1px solid #FCD34D">Alerting Frameworks</span>
+        </div>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
+        <div style="background:linear-gradient(135deg,#FEF2F2,#FEE2E2);padding:20px 24px;border-bottom:1px solid #FCA5A5">
+          <div style="display:flex;align-items:center;gap:10px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#991B1B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            <span style="font-size:14px;font-weight:700;color:#991B1B">Data Management</span>
+          </div>
+        </div>
+        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Delphix</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Oracle</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">MSSQL</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">PostgreSQL</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Vector Database</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Data Masking</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Data Virtualisation</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#FEF2F2;color:#991B1B;font-size:12.5px;font-weight:500;border:1px solid #FCA5A5">Data Quality</span>
+        </div>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
+        <div style="background:linear-gradient(135deg,#F0F9FF,#E0F2FE);padding:20px 24px;border-bottom:1px solid #7DD3FC">
+          <div style="display:flex;align-items:center;gap:10px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0C4A6E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span style="font-size:14px;font-weight:700;color:#0C4A6E">Languages &amp; Tooling</span>
+          </div>
+        </div>
+        <div style="padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">C#</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Java</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Python</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Node.js</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">TypeScript</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Dynamics 365</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Power Apps</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Docker</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Terraform</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Android Dev</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">Google Play</span>
+          <span style="padding:4px 12px;border-radius:100px;background:#F0F9FF;color:#0C4A6E;font-size:12.5px;font-weight:500;border:1px solid #7DD3FC">App Store Management</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Leadership Competencies -->
+    <div style="margin-top:24px;background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
+      <div style="background:linear-gradient(135deg,#F8FAFF,#EEF2FF);padding:20px 24px;border-bottom:1px solid var(--border)">
+        <div style="display:flex;align-items:center;gap:10px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span style="font-size:14px;font-weight:700;color:#1D4ED8">Leadership Competencies</span>
+        </div>
+      </div>
+      <div style="padding:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Digital Transformation</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Technology Strategy</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Team Leadership</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Stakeholder Management</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Budget Management</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Vendor Management</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Innovation Management</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Agile / Lean Delivery</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--mid)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Continuous Improvement</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- VENTURES -->
+<section class="sw" id="ventures">
+  <div class="sw-inner">
+    <div class="s-eyebrow">Ventures</div>
+    <h2>Side Projects</h2>
+    <p class="s-sub">Things built outside of work.</p>
+    <div class="ventures-grid">
+      <div class="vc">
+        <div class="vc-bar"></div>
+        <div class="vc-body">
+          <div class="vc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="vc-name">QuantixLabs</div>
+          <a class="vc-url" href="https://www.quantixlabs.org" target="_blank">quantixlabs.org</a>
+          <div class="vc-desc">Independent mobile games studio. Three titles in development - PuzzleQ, Quickfire, and Trivia Hub. Built for Android, privacy-first, no ads or dark patterns.</div>
+        </div>
+      </div>
+      <div class="vc">
+        <div class="vc-bar"></div>
+        <div class="vc-body">
+          <div class="vc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+          <div class="vc-name">E-commerce Integration Platform</div>
+          <a class="vc-url" href="https://www.ebay.com.au/str/shopfrenzyaustralia" target="_blank">ShopFrenzy</a>
+          <div class="vc-desc">A custom-built integration platform connecting e-commerce storefronts with supplier feeds, pricing engines, and order management systems. Built to run ShopFrenzy and now available as a tool for other businesses operating at scale online.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact-wrap" id="contact">
+  <div class="s-eyebrow">Contact</div>
+  <h2>Get In Touch</h2>
+  <p class="s-sub">Happy to connect on engineering, AI, automation, or anything else worth talking about.</p>
+  <div class="contact-btns">
+    <a href="mailto:rajendra@rajendrasharma.com" class="btn-grad">✉ Email Me</a>
+    <a href="https://linkedin.com/in/rajendra--sharma" target="_blank" class="btn-outline">LinkedIn</a>
+  </div>
+  <div class="contact-info">
+    <div class="ci-box">
+      <div class="ci-label">Currently</div>
+      <div class="ci-body">Enterprise Release &amp; QA Manager at McMillan Shakespeare, Melbourne.</div>
+    </div>
+    <div class="ci-box">
+      <div class="ci-label">Education</div>
+      <div class="ci-body">
+        <div class="edu-deg">B.E., Computer Engineering</div>
+        <div class="edu-uni">Savitribai Phule Pune University</div>
+        <div class="edu-yr">2003 – 2007</div>
+      </div>
+    </div>
+    <div class="ci-box">
+      <div class="ci-label">Writing</div>
+      <div class="ci-body">
+        <a href="https://www.linkedin.com/pulse/from-productivity-predictive-governance-introducing-cognitive-sharma-zptec/" target="_blank">Predictive Governance &amp; Cognitive Leadership →</a>
+        <a href="https://www.linkedin.com/pulse/evolving-mindset-technology-leadership-rajendra-sharma-rr6nc/" target="_blank">Evolving Mindset in Technology Leadership →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="f-name">Rajendra Sharma</div>
+    <div class="f-sub">Engineering Leader · Melbourne, AU</div>
+  </div>
+  <div class="f-links">
+    <a href="https://linkedin.com/in/rajendra--sharma" target="_blank">LinkedIn</a>
+    <a href="https://www.quantixlabs.org" target="_blank">QuantixLabs</a>
+    <a href="mailto:rajendra@rajendrasharma.com">Email</a>
+  </div>
+  <div class="f-copy">© 2026 rajendrasharma.com</div>
+</footer>
+
+</body>
+</html>
