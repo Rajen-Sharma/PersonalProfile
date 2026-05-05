@@ -1,3 +1,459 @@
+<!DOCTYPE html>
 <html lang="en">
-<body></body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rajendra Sharma — Engineering Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #111827; --mid: #374151; --muted: #6b7280; --muted2: #9ca3af;
+      --border: #e5e7eb; --off: #f9fafb; --white: #fff;
+      --blue: #2563eb; --blue-l: #eff6ff; --blue-b: #bfdbfe;
+      --purple: #7c3aed; --grad: linear-gradient(135deg,#2563eb,#7c3aed);
+      --green: #059669; --green-l: #ecfdf5;
+      --amber: #d97706; --amber-l: #fffbeb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; line-height: 1.65; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 62px; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; background: rgba(255,255,255,.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-name { font-weight: 700; font-size: 15px; color: var(--ink); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 13.5px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta { font-size: 13px; font-weight: 600; padding: 7px 18px; border-radius: 8px; background: var(--grad); color: #fff; text-decoration: none; transition: opacity .2s; }
+    .nav-cta:hover { opacity: .85; }
+
+    /* HERO */
+    .hero { text-align: center; padding: 100px 6% 64px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,99,235,.05), transparent); pointer-events: none; }
+    .hero-inner { max-width: 860px; margin: 0 auto; }
+    .hero-name { font-family: 'Fraunces', serif; font-size: clamp(40px,6vw,72px); font-weight: 500; letter-spacing: -2px; line-height: 1; color: var(--ink); margin-bottom: 18px; }
+    .hero-title { font-size: clamp(14px,1.6vw,17px); color: var(--muted); font-weight: 400; margin-bottom: 20px; line-height: 1.5; letter-spacing: .3px; }
+    .hero-title strong { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; }
+    .hero-desc { font-size: 16px; color: var(--muted); max-width: 640px; margin: 0 auto 24px; line-height: 1.8; }
+    .hero-bar { width: 36px; height: 2px; background: var(--grad); border-radius: 2px; margin: 0 auto; }
+
+    /* BUTTONS */
+    .btn-grad { display: inline-flex; align-items: center; gap: 6px; padding: 12px 28px; background: var(--grad); color: #fff; text-decoration: none; border-radius: 9px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 14px rgba(37,99,235,.25); transition: opacity .2s, transform .1s; }
+    .btn-grad:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 6px; padding: 12px 28px; border: 1.5px solid var(--border); color: var(--ink); text-decoration: none; border-radius: 9px; font-size: 14px; font-weight: 500; transition: border-color .2s, color .2s; }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* SECTIONS */
+    .sw { padding: 64px 6%; }
+    #about { padding-top: 48px; }
+    .sw.alt { background: var(--off); }
+    .sw-inner { max-width: 900px; margin: 0 auto; }
+    .sw-inner.wide { max-width: 1100px; }
+    .s-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; text-align: center; }
+    h2 { font-family: 'Fraunces', serif; font-size: clamp(26px,3vw,36px); font-weight: 700; letter-spacing: -1px; color: var(--ink); line-height: 1.15; margin-bottom: 14px; text-align: center; }
+    .s-sub { font-size: 15.5px; color: var(--muted); text-align: center; max-width: 520px; margin: 0 auto 36px; line-height: 1.75; }
+
+    /* ABOUT */
+    .about-head { margin-bottom: 28px; }
+    .about-head .s-eyebrow { text-align: center; }
+    .about-title { font-family: 'Fraunces', serif; font-size: clamp(26px,3vw,34px); font-weight: 700; letter-spacing: -.8px; color: var(--ink); line-height: 1.15; margin-bottom: 10px; text-align: center; }
+    .about-title-bar { width: 48px; height: 3px; background: var(--grad); border-radius: 2px; margin: 0 auto; }
+    .about-body { font-size: 15.5px; color: var(--mid); line-height: 1.8; text-align: center; max-width: 680px; margin: 0 auto; }
+    .about-body p + p { margin-top: 16px; }
+
+    /* CAPABILITIES */
+    .cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 20px; }
+    .cap { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px 26px; transition: box-shadow .2s, transform .15s, border-color .2s; }
+    .cap:hover { box-shadow: 0 6px 24px rgba(37,99,235,.08); transform: translateY(-2px); border-color: var(--blue-b); }
+    .cap-icon { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .ci-b { background: var(--blue-l); color: var(--blue); }
+    .ci-p { background: #f5f3ff; color: var(--purple); }
+    .ci-g { background: var(--green-l); color: var(--green); }
+    .ci-a { background: var(--amber-l); color: var(--amber); }
+    .cap-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .cap-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* BUILT */
+    .built-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .bc { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 24px 22px; position: relative; overflow: hidden; transition: box-shadow .2s, transform .15s, border-color .2s; }
+    .bc:hover { box-shadow: 0 8px 28px rgba(37,99,235,.09); transform: translateY(-2px); border-color: var(--blue-b); }
+    .bc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad); transform: scaleX(0); transition: transform .2s; transform-origin: left; }
+    .bc:hover::before { transform: scaleX(1); }
+    .bc-name { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; letter-spacing: -.2px; line-height: 1.2; }
+    .bc-stack { font-size: 10.5px; font-weight: 600; color: var(--blue); margin-bottom: 8px; }
+    .bc-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* AGENTS */
+    .agents-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .agent { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; text-align: center; transition: box-shadow .2s, transform .15s; }
+    .agent:hover { box-shadow: 0 6px 20px rgba(37,99,235,.08); transform: translateY(-2px); }
+    .agent-num { width: 36px; height: 36px; border-radius: 10px; background: var(--grad); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; margin: 0 auto 14px; }
+    .agent-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .agent-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .agents-result { margin-top: 20px; background: var(--blue-l); border: 1px solid var(--blue-b); border-radius: 14px; padding: 28px 32px; }
+    .agents-result-label { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .agents-result p { font-size: 15px; color: var(--mid); line-height: 1.75; }
+
+    /* EXPERIENCE */
+    .exp-list { display: flex; flex-direction: column; gap: 20px; }
+    .exp-item { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 28px 28px 24px; transition: box-shadow .2s, transform .15s, border-color .2s; }
+    .exp-item:hover { box-shadow: 0 8px 28px rgba(37,99,235,.09); transform: translateY(-2px); border-color: var(--blue-b); }
+    .exp-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+    .exp-header-left { flex: 1; min-width: 0; }
+    .exp-role { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: -.3px; margin-bottom: 4px; line-height: 1.2; }
+    .exp-co-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .exp-co { font-size: 13px; font-weight: 700; color: var(--blue); }
+    .exp-co-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted2); flex-shrink: 0; display: inline-block; }
+    .exp-period { font-size: 12.5px; color: var(--muted); }
+    .exp-header-right { flex-shrink: 0; padding-top: 2px; }
+    .exp-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 100px; }
+    .exp-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; }
+    .eb-ft { background: var(--green-l); color: var(--green); }
+    .eb-ft::before { background: var(--green); }
+    .eb-ct { background: var(--off); color: var(--muted); border: 1px solid var(--border); }
+    .eb-ct::before { background: var(--muted2); }
+    .exp-divider { height: 1px; background: var(--border); margin-bottom: 16px; }
+    .exp-note { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 14px; font-style: italic; }
+    .exp-wins { display: flex; flex-direction: column; gap: 10px; }
+    .exp-win { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--mid); line-height: 1.6; }
+    .exp-win-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--grad); flex-shrink: 0; margin-top: 6px; opacity: .7; display: inline-block; }
+
+    /* SKILLS */
+    .sg-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sg-tag { font-size: 12.5px; padding: 6px 13px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; color: var(--mid); font-weight: 500; transition: border-color .2s, color .2s; }
+    .sg-tag:hover { border-color: var(--blue-b); color: var(--blue); }
+    .leadership-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 28px; margin-left: 50px; text-align: left; }
+    .leadership-item { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--mid); }
+    .leadership-item svg { color: var(--blue); flex-shrink: 0; }
+
+    /* VENTURES */
+    .ventures-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .vc { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: box-shadow .2s, transform .15s; }
+    .vc:hover { box-shadow: 0 8px 28px rgba(0,0,0,.07); transform: translateY(-2px); }
+    .vc-bar { height: 3px; background: var(--grad); }
+    .vc-body { padding: 28px; }
+    .vc-icon { margin-bottom: 12px; }
+    .vc-name { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .vc-url { font-size: 12.5px; font-weight: 600; color: var(--blue); text-decoration: none; display: block; margin-bottom: 12px; }
+    .vc-url:hover { text-decoration: underline; }
+    .vc-desc { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+    /* CONTACT */
+    .contact-wrap { padding: 64px 6%; text-align: center; }
+    .contact-wrap h2 { margin-bottom: 12px; }
+    .contact-wrap .s-sub { margin-bottom: 28px; }
+    .contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .contact-info { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; max-width: 720px; margin: 0 auto; }
+    .ci-box { background: var(--off); border-radius: 14px; padding: 22px 24px; text-align: left; }
+    .ci-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+    .ci-body { font-size: 13.5px; color: var(--mid); line-height: 1.7; }
+    .ci-body a { color: var(--blue); text-decoration: none; display: block; margin-bottom: 4px; font-size: 13px; }
+    .ci-body a:hover { text-decoration: underline; }
+    .edu-deg { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .edu-uni { font-size: 12.5px; color: var(--muted); }
+
+    /* FOOTER */
+    footer { padding: 32px 6%; background: var(--ink); display: flex; justify-content: space-between; align-items: center; }
+    .f-name { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 600; color: #fff; }
+    .f-sub { font-size: 12px; color: rgba(255,255,255,.4); margin-top: 2px; }
+    .f-links { display: flex; gap: 22px; }
+    .f-links a { font-size: 13px; color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; }
+    .f-links a:hover { color: #fff; }
+    .f-copy { font-size: 12px; color: rgba(255,255,255,.3); }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      nav .nav-links { display: none; }
+      .agents-grid { grid-template-columns: 1fr 1fr; }
+      .exp-header { flex-direction: column; gap: 8px; }
+      .ventures-grid, .contact-info { grid-template-columns: 1fr; }
+      .sw { padding: 44px 5%; }
+      #about { padding-top: 24px; }
+      .hero { padding: 90px 5% 48px; }
+      .built-grid { grid-template-columns: repeat(2,1fr); }
+      .leadership-grid { grid-template-columns: repeat(2,1fr); }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 560px) {
+      .built-grid { grid-template-columns: 1fr; }
+      .agents-grid { grid-template-columns: 1fr; }
+      .leadership-grid { grid-template-columns: 1fr 1fr; }
+      .contact-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Rajendra Sharma</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#ventures">Ventures</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get In Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-name">Rajendra Sharma</div>
+    <div class="hero-title">Engineering &nbsp;&middot;&nbsp; Automation &nbsp;&middot;&nbsp; AI</div>
+    <p class="hero-desc">Engineering leader with accountability across release governance, delivery programs, and AI integration in healthcare and financial services.</p>
+    <div class="hero-bar"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sw" id="about">
+  <div class="sw-inner wide">
+    <div class="about-head">
+      <div class="s-eyebrow">About Me</div>
+      <div class="about-title">A bit about me</div>
+      <div class="about-title-bar"></div>
+    </div>
+    <div class="about-body">
+      <p>Eighteen years across engineering, automation architecture, and delivery leadership in healthcare and financial services. The work has shifted from building systems to governing them.</p>
+      <p>I stay technically engaged by choice. It narrows the gap between what teams build and what delivery needs, and it makes risk visible earlier in the process.</p>
+      <p>Outside of work I run QuantixLabs, an independent mobile games studio, and maintain a custom e-commerce integration platform. Both run in production.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="sw alt" id="expertise">
+  <div class="sw-inner wide">
+    <div class="s-eyebrow">Core Capabilities</div>
+    <h2>What I Do</h2>
+    <p class="s-sub">Hands-on across the full engineering stack, from pipelines and cloud to AI systems and team leadership.</p>
+    <div class="cap-grid">
+      <div class="cap"><div class="cap-icon ci-b"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg></div><div class="cap-title">DevOps &amp; Release Engineering</div><div class="cap-desc">Release governance and CI/CD pipeline design across complex enterprise environments. Zero-downtime deployment, structured release processes, and full environment control.</div></div>
+      <div class="cap"><div class="cap-icon ci-p"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 8v4l3 3"/><path d="M18 2l4 4-4 4"/><path d="M22 6h-6"/></svg></div><div class="cap-title">AI &amp; Agentic Systems</div><div class="cap-desc">Production deployment of GenAI tooling and multi-agent systems for operational intelligence, test automation, and self-service infrastructure.</div></div>
+      <div class="cap"><div class="cap-icon ci-b"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><div class="cap-title">Cloud &amp; Infrastructure</div><div class="cap-desc">Azure architecture and cost governance across AKS, APIM, and Landing Zone design. FinOps strategy and enterprise environment management at scale.</div></div>
+      <div class="cap"><div class="cap-icon ci-g"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="cap-title">Test Automation</div><div class="cap-desc">Enterprise automation frameworks designed for longevity. Selenium, C#, and JMeter with a plain-language interpreter embedded directly in CI pipelines.</div></div>
+      <div class="cap"><div class="cap-icon ci-a"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><circle cx="12" cy="12" r="10"/></svg></div><div class="cap-title">Observability</div><div class="cap-desc">Operational visibility across hybrid estates: real-time dashboards, structured alerting, and release-readiness tooling that teams rely on in production.</div></div>
+      <div class="cap"><div class="cap-icon ci-g"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="cap-title">Engineering Leadership</div><div class="cap-desc">Team design, hiring, and development. Budget and vendor ownership. Delivery governance with clear accountability at every layer.</div></div>
+      <div class="cap"><div class="cap-icon ci-p"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="cap-title">Integration Engineering</div><div class="cap-desc">Resilient API and system integrations across CRM, ERP, and e-commerce platforms. Designed for maintainability over the full operational lifecycle.</div></div>
+      <div class="cap"><div class="cap-icon ci-b"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cap-title">Risk &amp; Compliance</div><div class="cap-desc">Environment stability controls, DR planning, and compliance frameworks built into delivery practice from the outset.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILT -->
+<section class="sw" id="built">
+  <div class="sw-inner wide">
+    <div class="s-eyebrow">What I've Built</div>
+    <h2>Tools &amp; Platforms</h2>
+    <p class="s-sub">A selection of things built across work and personal projects.</p>
+    <div class="built-grid">
+      <div class="bc"><div class="bc-name">AI Driven Development</div><div class="bc-stack">Azure AI · LLM Orchestration · Agentic Systems</div><div class="bc-desc">Coordinated AI agents handling test automation end-to-end, from requirements to scripts to results, with no manual handoffs.</div></div>
+      <div class="bc"><div class="bc-name">DevOps Tools</div><div class="bc-stack">CI/CD · D365 · Power Apps · Provisioning</div><div class="bc-desc">Automation across environment provisioning, Dynamics 365 deployments, Power Apps pipelines, and release orchestration.</div></div>
+      <div class="bc"><div class="bc-name">Test Automation</div><div class="bc-stack">Selenium · Java · Performance · Custom Interpreter</div><div class="bc-desc">Enterprise test frameworks with a plain-language interpreter, performance monitoring, and load testing across web and API layers.</div></div>
+      <div class="bc"><div class="bc-name">Environment Dashboard</div><div class="bc-stack">Azure DevOps · Datadog</div><div class="bc-desc">Unified real-time view across cloud, on-prem, and legacy environments: status, alerting, and release readiness in one place.</div></div>
+      <div class="bc"><div class="bc-name">Data Management</div><div class="bc-stack">Delphix · Oracle · Unix · Data Masking</div><div class="bc-desc">Large-scale Oracle data virtualisation using Delphix, with automated Unix pipelines covering provisioning, masking, and data quality.</div></div>
+      <div class="bc"><div class="bc-name">QuantixLabs Apps &amp; Games</div><div class="bc-stack">Android · Google Play</div><div class="bc-desc">Independent mobile games studio. PuzzleQ, Quickfire, and Trivia Hub. Privacy-first, no ads, lightweight on Android.</div></div>
+      <div class="bc"><div class="bc-name">E-commerce Integration Suite</div><div class="bc-stack">Marketplace API · Inventory &amp; Order Automation</div><div class="bc-desc">Custom platform handling listings, pricing, inventory sync, and orders across e-commerce channels. Available to other businesses.</div></div>
+      <div class="bc"><div class="bc-name">Productivity Tools</div><div class="bc-stack">Azure · FinOps · Indexing &amp; Analysis</div><div class="bc-desc">Internal tooling built to fill operational gaps: document indexers, a FinOps spend tracker, and environment analysis utilities.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section class="sw alt" id="agents">
+  <div class="sw-inner wide">
+    <div class="s-eyebrow">Multi-Agent Systems</div>
+    <h2>Agentic Delivery Framework</h2>
+    <p class="s-sub">A coordinated multi-agent system where each agent has a single, non-overlapping responsibility. No agent bypasses the chain. The pattern is domain-agnostic, applied here to software delivery.</p>
+    <div class="agents-grid">
+      <div class="agent"><div class="agent-num">01</div><div class="agent-name">Coordinator</div><div class="agent-desc">The only entry point. Reads prior context, orchestrates the chain, and writes nothing itself. All decisions flow through here.</div></div>
+      <div class="agent"><div class="agent-num">02</div><div class="agent-name">Researcher</div><div class="agent-desc">Read-only discovery. Maps the current state, identifies gaps, and returns a structured findings report before anything is actioned.</div></div>
+      <div class="agent"><div class="agent-num">03</div><div class="agent-name">Builder</div><div class="agent-desc">Executes the work within a strictly defined scope. Never overreaches into adjacent responsibilities.</div></div>
+      <div class="agent"><div class="agent-num">04</div><div class="agent-name">Spec Writer</div><div class="agent-desc">Validates against the live system, not assumptions. Grounds every output in observed reality before producing a result.</div></div>
+      <div class="agent"><div class="agent-num">05</div><div class="agent-name">Reviewer</div><div class="agent-desc">Audits output against defined standards. Returns pass or fix with exact references, routing failures back to the correct agent, never to the user.</div></div>
+      <div class="agent"><div class="agent-num">06</div><div class="agent-name">Documenter</div><div class="agent-desc">Always runs last. Captures decisions, watch-outs, and context so the next session inherits what this one learned.</div></div>
+    </div>
+    <div class="agents-result">
+      <div class="agents-result-label">The result</div>
+      <p>Locator drift dropped. The agents read button labels from the live DOM rather than guessing. After several sessions, they were making decisions consistent with architectural choices from weeks earlier, because they had read their own notes. The outcome wasn't driven by any single AI feature. It came from treating the agents like team members: defined roles, a structured process, documented prior decisions, and a reviewer who routes failures back through the chain.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="sw" id="experience">
+  <div class="sw-inner">
+    <div class="s-eyebrow">Career</div>
+    <h2>Experience</h2>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-header-left">
+            <div class="exp-role">Enterprise Release &amp; QA Manager</div>
+            <div class="exp-co-row"><span class="exp-co">McMillan Shakespeare</span><span class="exp-co-dot"></span><span class="exp-period">2+ years · Melbourne</span></div>
+          </div>
+          <div class="exp-header-right"><span class="exp-badge eb-ft">Full-time</span></div>
+        </div>
+        <div class="exp-divider"></div>
+        <div class="exp-wins">
+          <div class="exp-win"><span class="exp-win-dot"></span>Accountable for release governance and quality assurance across enterprise applications supporting two concurrent multi-million dollar transformation programs</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Introduced agentic AI systems for test automation, replacing manual handoffs with a fully automated pipeline from requirements to validated results</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Owns the full release lifecycle: environment management, deployment execution, and post-release validation across all production streams</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Automated environment provisioning and release configuration, eliminating recurring failures that had previously blocked delivery</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Leads a cross-functional delivery and QA team across multiple concurrent workstreams</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-header-left">
+            <div class="exp-role">DevOps Transformation Lead</div>
+            <div class="exp-co-row"><span class="exp-co">Bupa ANZ</span><span class="exp-co-dot"></span><span class="exp-period">8 years · Melbourne</span></div>
+          </div>
+          <div class="exp-header-right"><span class="exp-badge eb-ft">Full-time</span></div>
+        </div>
+        <div class="exp-divider"></div>
+        <div class="exp-wins">
+          <div class="exp-win"><span class="exp-win-dot"></span>Delivered ~$100K/month in Azure cost reduction through FinOps governance and DevOps pipeline restructuring</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Zero-downtime production releases sustained across all major transformation streams throughout an 8-year tenure</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Migrated thousands of APIs to Azure APIM; scaled Delphix data virtualisation across enterprise Oracle databases</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Designed and deployed a GenAI chatbot for self-service environment provisioning, removing dependency on the operations team for routine requests</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Built and led a DevOps and delivery team through multiple concurrent transformation programs</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-header-left">
+            <div class="exp-role">Engineering Lead · Automation &amp; Quality</div>
+            <div class="exp-co-row"><span class="exp-co">Xpanxion</span><span class="exp-co-dot"></span><span class="exp-period">1.5 years · Pune</span></div>
+          </div>
+          <div class="exp-header-right"><span class="exp-badge eb-ft">Full-time</span></div>
+        </div>
+        <div class="exp-divider"></div>
+        <div class="exp-wins">
+          <div class="exp-win"><span class="exp-win-dot"></span>Implemented CI/CD via Jenkins and Octopus Deploy, reducing deployment cycles by 45%</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Redesigned performance testing with JMeter: 4x scalability improvement and 60% latency reduction</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Built innovation dashboards that surfaced $250K in annual savings opportunities</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Led and mentored junior engineers across concurrent client engagements</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-header-left">
+            <div class="exp-role">Automation Architect</div>
+            <div class="exp-co-row"><span class="exp-co">Datamatics</span><span class="exp-co-dot"></span><span class="exp-period">6 years 8 months · Multiple locations</span></div>
+          </div>
+          <div class="exp-header-right"><span class="exp-badge eb-ft">Full-time</span></div>
+        </div>
+        <div class="exp-divider"></div>
+        <div class="exp-note">Joined as Research Engineer · Progressed to Automation Architect</div>
+        <div class="exp-wins">
+          <div class="exp-win"><span class="exp-win-dot"></span>Delivered automation programs across insurance, finance, and technology clients in multiple geographies</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Designed a Java-based test interpreter with natural language processing, enabling plain-English test authoring without code</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Held accountability for delivery, pre-sales, and client relationships across concurrent engagements</div>
+          <div class="exp-win"><span class="exp-win-dot"></span>Recognised with 4 internal awards across R&amp;D, delivery, pre-sales, and client relations</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="sw alt" id="skills">
+  <div class="sw-inner wide">
+    <div class="s-eyebrow">Technical Skills</div>
+    <h2>Skills Snapshot</h2>
+    <div class="agents-grid" style="margin-top:24px">
+      <div class="agent"><div class="agent-num"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg></div><div class="agent-name">DevOps &amp; Release</div><div class="sg-tags" style="justify-content:center;margin-top:12px"><span class="sg-tag">Azure DevOps</span><span class="sg-tag">CI/CD</span><span class="sg-tag">Jenkins</span><span class="sg-tag">Octopus Deploy</span><span class="sg-tag">GitHub Actions</span><span class="sg-tag">Release Management</span><span class="sg-tag">GitOps</span><span class="sg-tag">DevSecOps</span><span class="sg-tag">Environment Management</span></div></div>
+      <div class="agent"><div class="agent-num"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><div class="agent-name">Cloud &amp; Infrastructure</div><div class="sg-tags" style="justify-content:center;margin-top:12px"><span class="sg-tag">Microsoft Azure</span><span class="sg-tag">AKS</span><span class="sg-tag">Azure APIM</span><span class="sg-tag">Azure DevTest Labs</span><span class="sg-tag">Azure Landing Zone</span><span class="sg-tag">Terraform</span><span class="sg-tag">FinOps</span><span class="sg-tag">Cost Optimisation</span></div></div>
+      <div class="agent"><div class="agent-num"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 8v4l3 3"/><path d="M18 2l4 4-4 4"/><path d="M22 6h-6"/></svg></div><div class="agent-name">AI &amp; Automation</div><div class="sg-tags" style="justify-content:center;margin-top:12px"><span class="sg-tag">Azure AI</span><span class="sg-tag">GenAI / LLMs</span><span class="sg-tag">Agent Orchestration</span><span class="sg-tag">RAG Pipelines</span><span class="sg-tag">Vector Search</span><span class="sg-tag">Embeddings</span><span class="sg-tag">Prompt Engineering</span><span class="sg-tag">Selenium / WebDriver</span><span class="sg-tag">JMeter</span><span class="sg-tag">Playwright</span></div></div>
+      <div class="agent"><div class="agent-num"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><circle cx="12" cy="12" r="10"/></svg></div><div class="agent-name">SRE &amp; Monitoring</div><div class="sg-tags" style="justify-content:center;margin-top:12px"><span class="sg-tag">Datadog</span><span class="sg-tag">Splunk</span><span class="sg-tag">Prometheus</span><span class="sg-tag">Grafana</span><span class="sg-tag">App Insights</span><span class="sg-tag">Dynatrace</span><span class="sg-tag">SRE Practices</span><span class="sg-tag">Alerting Frameworks</span></div></div>
+      <div class="agent"><div class="agent-num"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><div class="agent-name">Data Management</div><div class="sg-tags" style="justify-content:center;margin-top:12px"><span class="sg-tag">Delphix</span><span class="sg-tag">Oracle</span><span class="sg-tag">MSSQL</span><span class="sg-tag">PostgreSQL</span><span class="sg-tag">Vector Database</span><span class="sg-tag">Data Masking</span><span class="sg-tag">Data Virtualisation</span><span class="sg-tag">Data Quality</span></div></div>
+      <div class="agent"><div class="agent-num"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div class="agent-name">Languages &amp; Tooling</div><div class="sg-tags" style="justify-content:center;margin-top:12px"><span class="sg-tag">C#</span><span class="sg-tag">Java</span><span class="sg-tag">Python</span><span class="sg-tag">Node.js</span><span class="sg-tag">TypeScript</span><span class="sg-tag">Dynamics 365</span><span class="sg-tag">Power Apps</span><span class="sg-tag">Docker</span><span class="sg-tag">Android Dev</span><span class="sg-tag">Google Play</span></div></div>
+    </div>
+    <div class="agent" style="margin-top:20px">
+      <div class="agent-num"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="agent-name">Leadership Competencies</div>
+      <div class="leadership-grid">
+        <div class="leadership-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Digital Transformation</div>
+        <div class="leadership-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Technology Strategy</div>
+        <div class="leadership-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Team Leadership</div>
+        <div class="leadership-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Stakeholder Management</div>
+        <div class="leadership-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Budget Management</div>
+        <div class="leadership-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Vendor Management</div>
+        <div class="leadership-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Innovation Management</div>
+        <div class="leadership-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Agile / Lean Delivery</div>
+        <div class="leadership-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Continuous Improvement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENTURES -->
+<section class="sw" id="ventures">
+  <div class="sw-inner">
+    <div class="s-eyebrow">Ventures</div>
+    <h2>Side Projects</h2>
+    <p class="s-sub">Things built outside of work.</p>
+    <div class="ventures-grid">
+      <div class="vc">
+        <div class="vc-bar"></div>
+        <div class="vc-body">
+          <div class="vc-icon" style="color:var(--blue)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="vc-name">QuantixLabs</div>
+          <a class="vc-url" href="https://www.quantixlabs.org" target="_blank" rel="noreferrer">quantixlabs.org</a>
+          <div class="vc-desc">Independent mobile games studio. Three titles in development: PuzzleQ, Quickfire, and Trivia Hub. Built for Android, privacy-first, no ads or dark patterns.</div>
+        </div>
+      </div>
+      <div class="vc">
+        <div class="vc-bar"></div>
+        <div class="vc-body">
+          <div class="vc-icon" style="color:var(--purple)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+          <div class="vc-name">E-commerce Integration Platform</div>
+          <div class="vc-desc">A custom-built integration platform connecting e-commerce storefronts with supplier feeds, pricing engines, and order management systems. Built to run a retail operation and now available as a tool for other businesses operating at scale online.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-wrap" id="contact">
+  <div class="s-eyebrow">Contact</div>
+  <h2>Get In Touch</h2>
+  <p class="s-sub">Happy to connect on engineering, AI, automation, or anything else worth talking about.</p>
+  <div class="contact-btns">
+    <a href="mailto:rajendra@rajendrasharma.com" class="btn-grad">Email Me</a>
+    <a href="https://linkedin.com/in/rajendra--sharma" target="_blank" rel="noreferrer" class="btn-outline">LinkedIn</a>
+  </div>
+  <div class="contact-info">
+    <div class="ci-box"><div class="ci-label">Currently</div><div class="ci-body">Enterprise Release &amp; QA Manager at McMillan Shakespeare, Melbourne.</div></div>
+    <div class="ci-box"><div class="ci-label">Education</div><div class="ci-body"><div class="edu-deg">Bachelor of Computer Engineering</div><div class="edu-uni">Pune University</div></div></div>
+    <div class="ci-box"><div class="ci-label">Writing</div><div class="ci-body"><a href="https://www.linkedin.com/pulse/from-productivity-predictive-governance-introducing-cognitive-sharma-zptec/" target="_blank" rel="noreferrer">Productivity to Predictive Governance &rarr;</a><a href="https://www.linkedin.com/pulse/evolving-mindset-technology-leadership-rajendra-sharma-rr6nc/" target="_blank" rel="noreferrer">The Evolving Mindset of Technology Leadership &rarr;</a></div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="f-name">Rajendra Sharma</div>
+    <div class="f-sub">Engineering Leader · Melbourne, AU</div>
+  </div>
+  <div class="f-links">
+    <a href="https://linkedin.com/in/rajendra--sharma" target="_blank" rel="noreferrer">LinkedIn</a>
+    <a href="https://www.quantixlabs.org" target="_blank" rel="noreferrer">QuantixLabs</a>
+    <a href="mailto:rajendra@rajendrasharma.com">Email</a>
+  </div>
+  <div class="f-copy">&copy; 2026 rajendrasharma.com</div>
+</footer>
+
+</body>
 </html>
